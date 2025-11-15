@@ -1,0 +1,35 @@
+function RivetLogo({ size = 32 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="50" cy="50" r="45" fill="currentColor" />
+      
+      <circle cx="50" cy="50" r="38" fill="white" fillOpacity="0.2" />
+      
+      <circle cx="35" cy="40" r="6" fill="white" />
+      <circle cx="65" cy="40" r="6" fill="white" />
+      <circle cx="35" cy="60" r="6" fill="white" />
+      <circle cx="65" cy="60" r="6" fill="white" />
+      
+      <circle cx="35" cy="40" r="3" fill="currentColor" />
+      <circle cx="65" cy="40" r="3" fill="currentColor" />
+      <circle cx="35" cy="60" r="3" fill="currentColor" />
+      <circle cx="65" cy="60" r="3" fill="currentColor" />
+      
+      <path
+        d="M 25 50 Q 50 70, 75 50"
+        stroke="white"
+        strokeWidth="4"
+        fill="none"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export default RivetLogo;

@@ -62,13 +62,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'dark-bg': 'hsl(var(--dark-bg))',
-				'dark-surface': 'hsl(var(--dark-surface))'
+				'light-bg': 'hsl(var(--light-bg))',
+				'light-surface': 'hsl(var(--light-surface))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				md: 'calc(var(--radius) - 4px)',
+				sm: 'calc(var(--radius) - 8px)',
+				full: '9999px'
 			},
 			keyframes: {
 				'accordion-down': {

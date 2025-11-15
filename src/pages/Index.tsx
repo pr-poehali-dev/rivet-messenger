@@ -3,6 +3,7 @@ import ChatsView from '../components/ChatsView';
 import ContactsView from '../components/ContactsView';
 import ProfileView from '../components/ProfileView';
 import ChatWindow from '../components/ChatWindow';
+import RivetLogo from '../components/RivetLogo';
 import Icon from '@/components/ui/icon';
 
 export type LanguageMode = 'standard' | 'zoomer' | 'boomer';
@@ -85,13 +86,13 @@ function Index() {
   }
 
   return (
-    <div className="min-h-screen bg-dark-bg text-white flex flex-col dark">
-      <header className="bg-dark-surface border-b border-white/10 px-6 py-4">
+    <div className="min-h-screen max-w-md mx-auto bg-light-bg text-foreground flex flex-col shadow-2xl">
+      <header className="bg-light-surface/90 backdrop-blur-md border-b border-border/30 px-6 py-5 rounded-b-[2rem] shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center animate-scale-in">
-            <span className="text-lg font-bold">R</span>
+          <div className="text-accent animate-scale-in drop-shadow-md">
+            <RivetLogo size={38} />
           </div>
-          <h1 className="text-2xl font-bold">Rivet</h1>
+          <h1 className="text-2xl font-bold text-foreground">Rivet</h1>
         </div>
       </header>
 
@@ -112,42 +113,42 @@ function Index() {
         )}
       </main>
 
-      <nav className="bg-dark-surface border-t border-white/10 px-6 py-3">
-        <div className="flex justify-around items-center max-w-md mx-auto">
+      <nav className="bg-light-surface/90 backdrop-blur-md border-t border-border/30 px-4 py-4 rounded-t-[2rem] shadow-lg">
+        <div className="flex justify-around items-center">
           <button
             onClick={() => setActiveTab('chats')}
-            className={`flex flex-col items-center gap-1 transition-all duration-200 ${
+            className={`flex flex-col items-center gap-1.5 transition-all duration-300 px-5 py-2.5 rounded-[1.5rem] ${
               activeTab === 'chats' 
-                ? 'text-accent scale-110' 
-                : 'text-gray-400 hover:text-white'
+                ? 'text-accent bg-accent/10 scale-105 shadow-sm' 
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
             }`}
           >
-            <Icon name="MessageCircle" size={24} />
-            <span className="text-xs">{translations.chats[languageMode]}</span>
+            <Icon name="MessageCircle" size={24} strokeWidth={activeTab === 'chats' ? 2.5 : 2} />
+            <span className="text-[11px] font-semibold">{translations.chats[languageMode]}</span>
           </button>
           
           <button
             onClick={() => setActiveTab('contacts')}
-            className={`flex flex-col items-center gap-1 transition-all duration-200 ${
+            className={`flex flex-col items-center gap-1.5 transition-all duration-300 px-5 py-2.5 rounded-[1.5rem] ${
               activeTab === 'contacts' 
-                ? 'text-accent scale-110' 
-                : 'text-gray-400 hover:text-white'
+                ? 'text-accent bg-accent/10 scale-105 shadow-sm' 
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
             }`}
           >
-            <Icon name="Users" size={24} />
-            <span className="text-xs">{translations.contacts[languageMode]}</span>
+            <Icon name="Users" size={24} strokeWidth={activeTab === 'contacts' ? 2.5 : 2} />
+            <span className="text-[11px] font-semibold">{translations.contacts[languageMode]}</span>
           </button>
           
           <button
             onClick={() => setActiveTab('profile')}
-            className={`flex flex-col items-center gap-1 transition-all duration-200 ${
+            className={`flex flex-col items-center gap-1.5 transition-all duration-300 px-5 py-2.5 rounded-[1.5rem] ${
               activeTab === 'profile' 
-                ? 'text-accent scale-110' 
-                : 'text-gray-400 hover:text-white'
+                ? 'text-accent bg-accent/10 scale-105 shadow-sm' 
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
             }`}
           >
-            <Icon name="User" size={24} />
-            <span className="text-xs">{translations.profile[languageMode]}</span>
+            <Icon name="User" size={24} strokeWidth={activeTab === 'profile' ? 2.5 : 2} />
+            <span className="text-[11px] font-semibold">{translations.profile[languageMode]}</span>
           </button>
         </div>
       </nav>

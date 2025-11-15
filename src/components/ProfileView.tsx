@@ -55,39 +55,39 @@ function ProfileView({ languageMode, onLanguageChange }: ProfileViewProps) {
   };
 
   return (
-    <div className="p-4 space-y-6 animate-fade-in max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold">{translations.profile[languageMode]}</h2>
+    <div className="p-5 space-y-6 animate-fade-in max-w-2xl mx-auto">
+      <h2 className="text-2xl font-bold text-foreground">{translations.profile[languageMode]}</h2>
 
-      <div className="bg-dark-surface p-6 rounded-2xl space-y-4">
+      <div className="bg-light-surface/80 backdrop-blur-sm p-6 rounded-[2rem] shadow-md border border-border/30 space-y-5">
         <div className="flex flex-col items-center gap-4">
           <div className="relative group">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-4xl border-4 border-accent/40 transition-all duration-300 group-hover:scale-105">
+            <div className="w-28 h-28 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center text-5xl border-4 border-accent/30 transition-all duration-300 group-hover:scale-105 shadow-lg">
               👤
             </div>
-            <button className="absolute bottom-0 right-0 bg-accent hover:bg-accent/90 text-white p-2 rounded-full transition-all duration-200 hover:scale-110">
-              <Icon name="Camera" size={16} />
+            <button className="absolute bottom-1 right-1 bg-accent hover:bg-accent/90 active:scale-90 text-white p-2.5 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl">
+              <Icon name="Camera" size={18} strokeWidth={2.5} />
             </button>
           </div>
-          <button className="text-accent hover:text-accent/80 text-sm font-medium transition-colors">
+          <button className="text-accent hover:text-accent/80 active:scale-95 text-sm font-semibold transition-all">
             {translations.changeAvatar[languageMode]}
           </button>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm text-gray-400">{translations.textStatus[languageMode]}</label>
+          <label className="text-sm text-muted-foreground font-medium">{translations.textStatus[languageMode]}</label>
           {isEditingStatus ? (
             <input
               type="text"
               value={textStatus}
               onChange={(e) => setTextStatus(e.target.value)}
               onBlur={() => setIsEditingStatus(false)}
-              className="w-full bg-dark-bg text-white px-4 py-3 rounded-xl border border-accent focus:outline-none"
+              className="w-full bg-light-bg text-foreground px-4 py-3.5 rounded-[1.25rem] border-2 border-accent focus:outline-none shadow-sm"
               autoFocus
             />
           ) : (
             <div
               onClick={() => setIsEditingStatus(true)}
-              className="w-full bg-dark-bg text-white px-4 py-3 rounded-xl border border-white/10 hover:border-accent transition-colors cursor-pointer"
+              className="w-full bg-light-bg text-foreground px-4 py-3.5 rounded-[1.25rem] border border-border/50 hover:border-accent/60 active:scale-[0.99] transition-all cursor-pointer shadow-sm"
             >
               {textStatus}
             </div>
@@ -95,43 +95,43 @@ function ProfileView({ languageMode, onLanguageChange }: ProfileViewProps) {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm text-gray-400">{translations.moodStatus[languageMode]}</label>
+          <label className="text-sm text-muted-foreground font-medium">{translations.moodStatus[languageMode]}</label>
           <div className="flex items-center gap-3">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border-2 border-accent/30 flex items-center justify-center text-3xl animate-pulse-mood">
-              ✨
+            <div className="w-20 h-20 rounded-[1.5rem] bg-gradient-to-br from-accent/15 to-accent/5 border-2 border-accent/30 flex items-center justify-center text-4xl shadow-md">
+              <span className="animate-pulse-mood">✨</span>
             </div>
-            <button className="flex-1 bg-dark-bg hover:bg-dark-bg/80 text-accent px-4 py-3 rounded-xl border border-accent/30 hover:border-accent transition-all duration-200 font-medium">
-              <Icon name="Video" size={18} className="inline mr-2" />
-              Записать новый Mood
+            <button className="flex-1 bg-light-bg hover:bg-accent/5 active:scale-[0.98] text-accent px-4 py-3.5 rounded-[1.25rem] border border-accent/40 hover:border-accent transition-all duration-200 font-semibold shadow-sm flex items-center justify-center gap-2">
+              <Icon name="Video" size={18} strokeWidth={2.5} />
+              Записать Mood
             </button>
           </div>
         </div>
       </div>
 
-      <div className="bg-dark-surface p-6 rounded-2xl space-y-4">
-        <h3 className="font-semibold text-lg">{translations.languageMode[languageMode]}</h3>
+      <div className="bg-light-surface/80 backdrop-blur-sm p-6 rounded-[2rem] shadow-md border border-border/30 space-y-4">
+        <h3 className="font-semibold text-lg text-foreground">{translations.languageMode[languageMode]}</h3>
         
-        <div className="space-y-2">
+        <div className="space-y-2.5">
           {(['standard', 'zoomer', 'boomer'] as LanguageMode[]).map((mode) => (
             <button
               key={mode}
               onClick={() => onLanguageChange(mode)}
-              className={`w-full px-4 py-3 rounded-xl text-left transition-all duration-200 ${
+              className={`w-full px-5 py-4 rounded-[1.5rem] text-left transition-all duration-200 active:scale-[0.98] shadow-sm ${
                 languageMode === mode
-                  ? 'bg-accent text-white'
-                  : 'bg-dark-bg text-gray-400 hover:bg-dark-bg/80 hover:text-white'
+                  ? 'bg-accent text-white shadow-md'
+                  : 'bg-light-bg text-muted-foreground hover:bg-accent/5 hover:text-foreground border border-border/30'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="font-medium">{translations[mode][languageMode]}</span>
-                {languageMode === mode && <Icon name="Check" size={18} />}
+                <span className="font-semibold">{translations[mode][languageMode]}</span>
+                {languageMode === mode && <Icon name="Check" size={20} strokeWidth={2.5} />}
               </div>
             </button>
           ))}
         </div>
 
-        <div className="mt-4 p-4 bg-dark-bg rounded-xl border border-accent/20">
-          <p className="text-sm text-gray-400 leading-relaxed">
+        <div className="mt-4 p-4 bg-accent/5 rounded-[1.5rem] border border-accent/20">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {languageMode === 'standard' && 'Классический режим интерфейса с привычными формулировками.'}
             {languageMode === 'zoomer' && 'Зумерский стайл интерфейса — чекайте инбокс без кринжа! 🔥'}
             {languageMode === 'boomer' && 'Традиционные формулировки для комфортного пользования приложением.'}
